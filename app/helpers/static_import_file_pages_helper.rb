@@ -1,0 +1,2 @@
+module StaticImportFilePagesHelper
+end
