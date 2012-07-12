@@ -2,9 +2,10 @@
 <p>
 	Choose a file to import	
 </p>
-  <%= file_field('upload', 'filename') %>
+<%= form_tag({action: 'import'}, multipart: true) %>
 <p>
-<p>
-  <%= button_to "Import", :action => "import" %>
+	<label for="import">Select File</label> : 
+	<%= file_field 'upload', 'importfile' %>
 </p>
+<%= submit_tag "Upload" %>
 
