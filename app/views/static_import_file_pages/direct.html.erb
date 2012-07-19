@@ -1,0 +1,11 @@
+<h1>Direct Import File  Home</h1>
+<p>
+	Choose a file to import	direct to AWS S3
+</p>
+<%= form_tag({action: 'savedirect'}, multipart: true, :builder => CarrierWaveDirect::FormBuilder, :url => @uploader.direct_fog_url) %>
+<p>
+	<label for="import">Select File</label> : 
+	<%= file_field 'upload', 'importfile' %>
+</p>
+<%= submit_tag "Upload" %>
+

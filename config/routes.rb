@@ -2,6 +2,10 @@ UploadStaticApp::Application.routes.draw do
   #get "static_import_file_pages/home"
   match '/home', to: 'static_import_file_pages#home'
   match '/import', to: 'static_import_file_pages#import'
+  match '/direct', to: 'static_import_file_pages#direct'
+  match '/savedirect', to: 'static_import_file_pages#savedirect'
+  match '/multi', to: 'static_import_file_pages#multi'
+  match '/multiimport', to: 'static_import_file_pages#multiimport'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
