@@ -3,9 +3,10 @@ UploadStaticApp::Application.routes.draw do
   match '/home', to: 'static_import_file_pages#home'
   match '/import', to: 'static_import_file_pages#import'
   match '/direct', to: 'static_import_file_pages#direct'
-  match '/savedirect', to: 'static_import_file_pages#savedirect'
+  match '/directimport', to: 'static_import_file_pages#directimport'
   match '/multi', to: 'static_import_file_pages#multi'
   match '/multiimport', to: 'static_import_file_pages#multiimport'
+  match '/posts3' => redirect('https://rplus.imports.s3.amazonaws.com'), :as => :posts3 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

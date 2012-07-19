@@ -14,10 +14,7 @@ class StaticImportFilePagesController < ApplicationController
   def direct  	  	  
   end
 
-  def savedirect 
-    @uploader = ImportFileDirectUploader.new
-    binding.pry   
-    render :action => "direct"
+  def directimport 
   end
 
   def multi
