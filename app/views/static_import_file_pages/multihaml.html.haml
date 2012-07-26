@@ -1,14 +1,21 @@
-- content_for :head do
+= content_for :head do
   = stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css", :id => "theme" 
   = javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"
 
 %h1 Static Import File Home
 %p Choose a file to import
-#fileupload = form_tag({action: 'multiimport'}, multipart: true)
+#fileupload 
+  = form_tag({action: 'multiimport'}, multipart: true)
   .fileupload-buttonbar
-    %label.fileinput-button = file_field 'upload','file'
-      %span "Add files..."
-    %button.start{:type => :submit} Start Upload
-    %button.cancel{:type => :reset} Cancel Upload
-    %button.start{:type => :button} Delete Files
+    %label.fileinput-button 
+      %span Add files...
+      = file_field 'upload','file'
+    %button.start{:type => "submit"} Start Upload
+    %button.cancel{:type => "reset"} Cancel Upload
+    %button.delete{:type => "button"} Delete Files
+  .fileupload-content
+    %table.files
+    .fileupload-progressbar
+= render :partial => "template-upload"
+= render :partial => "template-download"
 
