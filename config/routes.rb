@@ -5,6 +5,7 @@ UploadStaticApp::Application.routes.draw do
   match '/direct', to: 'static_import_file_pages#direct'
   match '/directimport', to: 'static_import_file_pages#directimport'
   match '/multi', to: 'static_import_file_pages#multi'
+  match '/multihaml', to: 'static_import_file_pages#multihaml'
   match '/multiimport', to: 'static_import_file_pages#multiimport'
   match '/posts3' => redirect('https://rplus.imports.s3.amazonaws.com'), :as => :posts3 
 
