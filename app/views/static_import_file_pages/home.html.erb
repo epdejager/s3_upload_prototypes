@@ -1,0 +1,11 @@
+<h1>Static Import File  Home</h1>
+<p>
+	Choose a file to import	
+</p>
+<%= form_tag({action: 'import'}, multipart: true) %>
+<p>
+	<label for="import">Select File</label> : 
+	<%= file_field 'upload', 'importfile' %>
+</p>
+<%= submit_tag "Upload" %>
+
