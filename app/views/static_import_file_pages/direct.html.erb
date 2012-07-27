@@ -1,6 +1,7 @@
 <%= content_for :head do %>
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css", :id => "theme" %>
   <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <% end %>
 
 
@@ -9,7 +10,7 @@
 	Choose a file to import	
 </p>
 <div id="fileupload">
-	<%= form_tag({:action => :posts3}, multipart: true, onsubmit: 'directUpload()') %>
+	<%= form_tag({:action => :amazonbucket}, multipart: true, onsubmit: 'directUpload()') %>
 	<div class="fileupload-buttonbar">
       <label class="fileinput-button">
           <span>Add files...</span>
@@ -18,10 +19,6 @@
       <button type="submit" class="start">Start upload</button>
       <button type="reset" class="cancel">Cancel upload</button>
       <button type="button" class="delete">Delete files</button>
-    </div>    
-    <div class="fileupload-content">
-      <table class="files"></table>
-      <div class="fileupload-progressbar"></div>
     </div>
     <div>
       <input type = "hidden" name = "key" %>
@@ -30,6 +27,10 @@
       <input type = "hidden" name = "success_action_status" value = "200" %>
       <input type = "hidden" name = "policy" %>
       <input type = "hidden" name = "signature" %>
+    </div>
+    <div class="fileupload-content">
+      <table class="files"></table>
+      <div class="fileupload-progressbar"></div>
     </div>
   </form>
 </div>     
