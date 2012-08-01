@@ -7,7 +7,7 @@ UploadStaticApp::Application.routes.draw do
   match '/multi', to: 'static_import_file_pages#multi'
   match '/multihaml', to: 'static_import_file_pages#multihaml'
   match '/multiimport', to: 'static_import_file_pages#multiimport'
-  match '/amazonbucket' => redirect('https://rplus.imports.s3.amazonaws.com'), :as => :amazonbucket
+  #match '/amazonbucket' => redirect('https://rplus.imports.s3.amazonaws.com'), :as => :amazonbucket
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

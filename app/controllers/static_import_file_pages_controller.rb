@@ -23,7 +23,7 @@ class StaticImportFilePagesController < ApplicationController
       :policy => s3_upload_policy_document, 
       :signature => s3_upload_signature, 
       :key => @document.s3_key, 
-      :success_action_redirect => document_upload_success_document_url(@document)
+      :success_action_redirect => '/direct'#document_upload_success_document_url(@document)
     }    
   end
 
@@ -80,7 +80,7 @@ end
         {"bucket" =>  'rplus.imports'}, 
         ["starts-with", "$key", @document.s3_key],
         {"acl" => "private"},
-        {"success_action_status" => "200"},
+        {"success_action_redirect" => "/direct"},
         ["content-length-range", 0, 1048576]
       ]
     }

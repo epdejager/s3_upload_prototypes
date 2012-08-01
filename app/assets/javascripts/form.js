@@ -22,7 +22,7 @@ $(function () {
       acceptFileTypes: /\.(jpg|jpeg|gif|png|JPG|JPEG|GIF|PNG|txt)$/
     });
     
-    console.info('hello')
+    console.info('hello - in form.js and action is:')
     console.info($('#fileupload form').prop('action'))
 
     //$.ajax({url: $('#fileupload form').prop('action'), dataType: 'json', error: function (object, error, e) {

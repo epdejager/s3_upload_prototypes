@@ -10,28 +10,29 @@
 	Choose a file to import	
 </p>
 <div id="fileupload">
-	<%= form_tag({:action => :amazonbucket}, multipart: true, onsubmit: 'directUpload()') %>
-	<div class="fileupload-buttonbar">
-      <label class="fileinput-button">
-          <span>Add files...</span>
-            <%= file_filed 'upload','file' %>
-      </label>
-      <button type="submit" class="start">Start upload</button>
-      <button type="reset" class="cancel">Cancel upload</button>
-      <button type="button" class="delete">Delete files</button>
-    </div>
+	<%= form_tag('https://rplus.imports.s3.amazonaws.com',  multipart: true, onsubmit: 'directUpload();') %>
     <div>
-      <input type = "hidden" name = "key" %>
+      <input type = "hidden" name = "key"%>
       <input type = "hidden" name = "AWSAccessKeyId" value = 'AKIAIO7DWLW3MRHV5QXQ' %>
       <input type = "hidden" name = "acl" value = "private" %>
-      <input type = "hidden" name = "success_action_status" value = "200" %>
+      <input type="hidden" name="success_action_redirect="/direct">      
       <input type = "hidden" name = "policy" %>
       <input type = "hidden" name = "signature" %>
-    </div>
-    <div class="fileupload-content">
-      <table class="files"></table>
-      <div class="fileupload-progressbar"></div>
-    </div>
+      <input type = "hidden" name = "content-length-range", 0, 1048576 %>
+    </div>  
+	  <div class="fileupload-buttonbar">
+       <label class="fileinput-button">
+          <span>Add files...</span>
+            <%= file_field 'upload','file' %>
+       </label>
+       <button type="submit">Start upload</button>
+       <button type="reset" class="cancel">Cancel upload</button>
+       <button type="button" class="delete">Delete files</button>
+     </div>
+     <div class="fileupload-content">
+       <table class="files"></table>
+       <div class="fileupload-progressbar"></div>
+     </div>
   </form>
 </div>     
 
