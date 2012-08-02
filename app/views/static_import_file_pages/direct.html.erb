@@ -2,6 +2,7 @@
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css", :id => "theme" %>
   <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" %>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <%= javascript_include_tag "directupload.js" %>
 <% end %>
 
 
@@ -10,7 +11,7 @@
 	Choose a file to import	
 </p>
 <div id="fileupload">
-	<%= form_tag('https://rplus.imports.s3.amazonaws.com',  multipart: true, onsubmit: 'directUpload();') %>
+	<%= form_tag('https://rplus.imports.s3.amazonaws.com',  multipart: true) %>
     <div>
       <input type = "hidden" name = "key"%>
       <input type = "hidden" name = "AWSAccessKeyId" value = 'AKIAIO7DWLW3MRHV5QXQ' %>
@@ -29,8 +30,8 @@
        <button type="reset" class="cancel">Cancel upload</button>
        <button type="button" class="delete">Delete files</button>
      </div>
-     <div class="fileupload-content">
-       <table class="files"></table>
+     <div class="fileupload-content" name = "data">
+       <table name = 'files' class="files"></table>
        <div class="fileupload-progressbar"></div>
      </div>
   </form>

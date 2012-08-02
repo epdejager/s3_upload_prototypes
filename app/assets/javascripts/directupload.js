@@ -1,4 +1,3 @@
-function directUpload() {
   console.log('In directUpload()')
   $('#fileupload').fileupload({
     forceIframeTransport: true,    // VERY IMPORTANT.  you will get 405 Method Not Allowed if you don't add this.
@@ -43,4 +42,3 @@ function directUpload() {
       $j('#loading').hide();
     },
   });
-}
