@@ -16,13 +16,13 @@ class StaticImportFilePagesController < ApplicationController
 
  # create the document in rails, then send json back to our javascript to populate the form that will be
   # going to amazon.
-  def directimport 
+  def directimport         
+    @s3_key = "uploads/#{params[:doc][:title]}"
     binding.pry
-    @document = Document.create(params[:doc])
     render :json => {
       :policy => s3_upload_policy_document, 
       :signature => s3_upload_signature, 
-      :key => @document.s3_key, 
+      :key => @s3_key, 
       :success_action_redirect => '/direct'#document_upload_success_document_url(@document)
     }    
   end
@@ -78,10 +78,10 @@ end
     ret = {"expiration" => 5.minutes.from_now.utc.xmlschema,
       "conditions" =>  [ 
         {"bucket" =>  'rplus.imports'}, 
-        ["starts-with", "$key", @document.s3_key],
+        ["starts-with", "$key", @s3_key],
         {"acl" => "private"},
         {"success_action_redirect" => "/direct"},
-        ["content-length-range", 0, 1048576]
+        #["content-length-range", 0, 1048576]
       ]
     }
     @policy = Base64.encode64(ret.to_json).gsub(/\n/,'')

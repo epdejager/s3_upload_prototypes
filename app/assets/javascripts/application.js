@@ -13,5 +13,4 @@
 //= require shadowbox
 //= require customupload
 //= require form
-//= reqiore directUpload
-//= require_tree .
+// require_tree .

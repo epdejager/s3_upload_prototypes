@@ -1,3 +1,4 @@
+  $(function() {
   console.log('In directUpload()')
   $('#fileupload').fileupload({
     forceIframeTransport: true,    // VERY IMPORTANT.  you will get 405 Method Not Allowed if you don't add this.
@@ -39,6 +40,7 @@
       
       // hide the loading spinner that we turned on earlier.
       console.log('done');
-      $j('#loading').hide();
+      $('#loading').hide();
     },
   });
+});
