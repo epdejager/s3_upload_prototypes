@@ -11,23 +11,26 @@ class StaticImportFilePagesController < ApplicationController
     render :action => "home"
   end
 
-  def direct  	  	  
+  def direct  
+    @bucket = params[:bucket]
+    #binding.pry  
   end
 
  # create the document in rails, then send json back to our javascript to populate the form that will be
   # going to amazon.
   def directimport         
     @s3_key = "uploads/#{params[:doc][:title]}"
-    binding.pry
+    #binding.pry
     render :json => {
       :policy => s3_upload_policy_document, 
       :signature => s3_upload_signature, 
       :key => @s3_key, 
       :success_action_redirect => 'http://localhost:3000/direct'#document_upload_success_document_url(@document)
-    }    
+    }      
   end
 
   def multi
+
   end
 
   def multiimport

@@ -8,11 +8,14 @@
 
 <h1>Static Import File  Home</h1>
 <p>
+<%= yield(@bucket) %>
+</p>
+<p>
 	Choose a file to import	
 </p>
 <div id="fileupload">
 	<%#= form_tag('https://rplus.imports.s3.amazonaws.com',  multipart: true) %>
-  <form accept-charset="UTF-8" action="https://rplus.imports.s3.amazonaws.com" enctype="multipart/form-data" method="post">
+  <form accept-charset="UTF-8" action="https://rplus.imports.s3.amazonaws.com" enctype="multipart/form-data" method="post" onsubmit = "javascript: console.info('bobs ur uncle');">
     <div>
       <input type = "hidden" name = "key"%>
       <input type = "hidden" name = "AWSAccessKeyId" value = 'AKIAIO7DWLW3MRHV5QXQ' %>
