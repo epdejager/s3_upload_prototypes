@@ -11,12 +11,13 @@
 	Choose a file to import	
 </p>
 <div id="fileupload">
-	<%= form_tag('https://rplus.imports.s3.amazonaws.com',  multipart: true) %>
+	<%#= form_tag('https://rplus.imports.s3.amazonaws.com',  multipart: true) %>
+  <form accept-charset="UTF-8" action="https://rplus.imports.s3.amazonaws.com" enctype="multipart/form-data" method="post">
     <div>
       <input type = "hidden" name = "key"%>
       <input type = "hidden" name = "AWSAccessKeyId" value = 'AKIAIO7DWLW3MRHV5QXQ' %>
       <input type = "hidden" name = "acl" value = "private" %>
-      <input type="hidden" name="success_action_redirect="/direct">      
+      <input type="hidden" name="success_action_redirect" value = "http://localhost:3000/direct">      
       <input type = "hidden" name = "policy" %>
       <input type = "hidden" name = "signature" %>
       <!--
@@ -26,7 +27,8 @@
 	  <div class="fileupload-buttonbar">
        <label class="fileinput-button">
           <span>Add files...</span>
-            <%= file_field 'upload','file' %>
+            <%#= file_field 'upload','file' %>
+            <input type = "file" name = "file" %>
        </label>
        <button type="submit">Start upload</button>
        <button type="reset" class="cancel">Cancel upload</button>
