@@ -15,6 +15,7 @@
         $(this).show();
       }).data('data', data);
 
+      /*
         //add policy etc
       console.info('In the add function, about to use ajax to add signature and policy information');
       for (i = 0; i < data.files.length; i++)
@@ -39,7 +40,8 @@
             data.isValidated) {
             data.jqXHR = data.submit();                
         }  
-      }
+      } //end loop
+      */
     },
     send: function(e, data) {      
 

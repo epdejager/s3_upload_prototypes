@@ -20,12 +20,12 @@ class StaticImportFilePagesController < ApplicationController
   # going to amazon.
   def directimport         
     @s3_key = "uploads/#{params[:doc][:title]}"
-    #binding.pry
+    # binding.pry
     render :json => {
       :policy => s3_upload_policy_document, 
       :signature => s3_upload_signature, 
       :key => @s3_key, 
-      :success_action_redirect => 'http://localhost:3000/direct'#document_upload_success_document_url(@document)
+     # :success_action_redirect => 'http://localhost:3000/direct'#document_upload_success_document_url(@document)
     }      
   end
 
@@ -80,11 +80,11 @@ end
     return @policy if @policy
     ret = {"expiration" => 5.minutes.from_now.utc.xmlschema,
       "conditions" =>  [ 
-        {"bucket" =>  'rplus.imports'}, 
+        {"bucket" =>  'rplus_imports'}, 
         ["starts-with", "$key", @s3_key],
         {"acl" => "private"},
-        {"success_action_redirect" => "http://localhost:3000/direct"},
-        #{"utf8" =>  '✓'}
+        #{"success_action_redirect" => "http://localhost:3000/direct"},
+        #{"utf8" =>  '&#x2713;'}
         #["content-length-range", 0, 1048576]
       ]
     }
