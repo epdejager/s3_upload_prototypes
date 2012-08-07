@@ -20,7 +20,7 @@ class StaticImportFilePagesController < ApplicationController
   # going to amazon.
   def directimport         
     @s3_key = "uploads/#{params[:doc][:title]}"
-    # binding.pry
+    #binding.pry
     render :json => {
       :policy => s3_upload_policy_document, 
       :signature => s3_upload_signature, 

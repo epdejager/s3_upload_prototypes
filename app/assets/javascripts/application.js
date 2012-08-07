@@ -10,6 +10,8 @@
 //= require jquery.iframe-transport
 //= require jquery.fileupload
 //= require jquery.fileupload-ui
+//= require jquery.fileupload-fp
+//= require jquery.fileupload-fp.js
 //= require shadowbox
 //= require customupload
 //= require form

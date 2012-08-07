@@ -1,9 +1,11 @@
+  var allFiles = new Array();
   $(function() {
   console.log('In directUpload()')
   $('#fileupload').fileupload({
     forceIframeTransport: true,    // VERY IMPORTANT.  you will get 405 Method Not Allowed if you don't add this.
-    autoUpload: true,    
+    autoUpload: false,    
   add: function (e, data) {
+
       var that = $(this).data('fileupload');
       that._adjustMaxNumberOfFiles(-data.files.length);
       data.isAdjusted = true;
@@ -14,6 +16,11 @@
       // Fix for IE7 and lower:
         $(this).show();
       }).data('data', data);
+
+      allFiles[allFiles.length] = data.files[0];
+
+      for (i = 0; i < allFiles.length; i++)
+        console.log(i + ": " + allFiles[i].name);
 
       /*
         //add policy etc
@@ -82,5 +89,8 @@
       console.log('done');
       $('#loading').hide();
     },
+    submit: function (event, data) {
+      console.log('submitting');
+    }
   });
 });
