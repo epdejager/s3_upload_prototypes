@@ -3,7 +3,7 @@
   console.log('In directUpload()')
   $('#fileupload').fileupload({
     forceIframeTransport: true,    // VERY IMPORTANT.  you will get 405 Method Not Allowed if you don't add this.
-    autoUpload: true,    
+    autoUpload: false,    
   add: function (e, data) {
 
       var that = $(this).data('fileupload');
@@ -21,7 +21,8 @@
 
       for (i = 0; i < allFiles.length; i++)
         console.log(i + ": " + allFiles[i].name);
-      
+
+      /*
         //add policy etc
       console.info('In the add function, about to use ajax to add signature and policy information');
       for (i = 0; i < data.files.length; i++)
@@ -47,7 +48,7 @@
             data.jqXHR = data.submit();                
         }  
       } //end loop
-      
+      */
     },
     send: function(e, data) {      
 

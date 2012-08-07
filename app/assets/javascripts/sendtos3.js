@@ -4,7 +4,7 @@ function sendtos3() {
       for (i = 0; i < len; i++)
       {
       $.ajax({
-        url: "/directimport",
+        url: "/multidirectimport",
         type: 'POST',
         dataType: 'json',
         //data: {doc: {title: $('#filestable tr:eq(' + i + ')').find('td').eq(1).html()}},

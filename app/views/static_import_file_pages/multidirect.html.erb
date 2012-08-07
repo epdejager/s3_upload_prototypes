@@ -2,11 +2,12 @@
   <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css", :id => "theme" %>
   <%= javascript_include_tag "http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js" %>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <%= javascript_include_tag "directupload.js" %>
+  <%= javascript_include_tag "multidirectupload.js" %>
+  <%= javascript_include_tag "sendtos3.js" %>
 <% end %>
 
 
-<h1>Static Import File Home - Single Direct</h1>
+<h1>Static Import File Home - Multi Direct</h1>
 <p>
 <%= yield(@bucket) %>
 </p>
@@ -33,7 +34,7 @@
             <%#= file_field 'upload','file' %>
             <input type = "file" name = "file" %>
        </label>
-       <button type="button" class="submit">Start upload</button>
+       <button type="button" onclick = "sendtos3()" >Start upload</button>
        <button type="reset" class="cancel">Cancel upload</button>
        <button type="button" class="delete">Delete files</button>
      </div>
